@@ -5,31 +5,50 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-
-    public float movementSpeed = 2f;
+    public Camera MainCamera;
+    private float movementSpeed = 5.0f;
     private Rigidbody2D playerRb;
     private Vector2 movementDirection;
+    private Vector2 screenBounds;
+    private float objectWidth;
+    private float objectHeight;
 
-    Camera camera;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
 
-        camera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        screenBounds = MainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, MainCamera.transform.position.z));
+        objectWidth = transform.GetComponent<SpriteRenderer>().bounds.extents.x; //extents = size of width / 2
+        objectHeight = transform.GetComponent<SpriteRenderer>().bounds.extents.y; //extents = size of height / 2
     }
 
     // Update is called once per frame
     void Update()
     {
-        movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        
     }
 
 
     void FixedUpdate()
     {
+        movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+ 
+
         playerRb.velocity = movementDirection * movementSpeed;
     }
+
+    void LateUpdate()
+    {
+        Vector3 viewPos = transform.position;
+        viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x * -1 + objectWidth, screenBounds.x - objectWidth);
+        viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y * -1 + objectHeight, screenBounds.y - objectHeight);
+        transform.position = viewPos;
+    }
+
+
 
 }
