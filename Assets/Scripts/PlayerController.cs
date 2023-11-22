@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
 
     public Camera MainCamera;
-    private float movementSpeed = 5.0f;
+    private float movementSpeed = 10.0f;
     private Rigidbody2D playerRb;
     private Vector2 movementDirection;
     private Vector2 screenBounds;
