@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 748234080}
   m_Layer: 0
   m_Name: SpawnEnemies
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -449,9 +449,10 @@ GameObject:
   - component: {fileID: 1427446391}
   - component: {fileID: 1427446392}
   - component: {fileID: 1427446393}
+  - component: {fileID: 1427446394}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -535,7 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd2a9b6da6b91794492244bf5d4ead93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainCamera: {fileID: 0}
+  MainCamera: {fileID: 519420031}
 --- !u!50 &1427446391
 Rigidbody2D:
   serializedVersion: 4
@@ -562,7 +563,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1427446392
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -621,6 +622,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 664895475899069632, guid: be4094b742bbf3b47a51671b82955fee, type: 3}
+--- !u!114 &1427446394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427446387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c2f2ac897d5df499ba0a359110789d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1478071620
 GameObject:
   m_ObjectHideFlags: 0

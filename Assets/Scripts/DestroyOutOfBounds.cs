@@ -5,12 +5,12 @@ using UnityEngine;
 public class DestroyOutOfBounds : MonoBehaviour
 {
 
-    private float limitBound = 6;
+    private Camera mainCamera;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        mainCamera = Camera.main;
     }
 
     // Update is called once per frame
@@ -18,16 +18,15 @@ public class DestroyOutOfBounds : MonoBehaviour
     {
 
         // If an object goes past the players view in the game, remove that object
-        if (transform.position.y > limitBound)
-        {
-            Destroy(gameObject);
-        }
-        else if (transform.position.y < -limitBound)
-        {
-            Debug.Log("Game Over!");
+        Vector3 viewportPos = mainCamera.WorldToViewportPoint(transform.position);
 
+        if (viewportPos.x < 0 || viewportPos.x > 1 || viewportPos.y < 0 || viewportPos.y > 1)
+        {
+            // Destroy the object if it's outside the screen
             Destroy(gameObject);
-
         }
     }
+
 }
+    
+
