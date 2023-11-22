@@ -27,8 +27,8 @@ public class Shoot : MonoBehaviour
     }
     private void shootBall()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * horizontalInput * speed * Time.deltaTime);
+        //float horizontalInput = Input.GetAxis("Horizontal");
+       // transform.Translate(Vector3.right * horizontalInput * speed * Time.deltaTime);
 
         Instantiate(bulletPrefab, transform.position, bulletPrefab.transform.rotation);
         
