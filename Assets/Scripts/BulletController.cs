@@ -15,14 +15,17 @@ public class BulletController : MonoBehaviour
     {
         
     }
-
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(collision.gameObject.tag);
-        if (collision.gameObject.tag == "Enemy")
+        if (other.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
+            // Deal damage to the enemy or destroy it
+            Destroy(other.gameObject); // For example, destroy the enemy
+            Destroy(gameObject); // Destroy the bullet
 
+
+          
         }
+        Debug.Log("le dispare al enemigo");
     }
 }
