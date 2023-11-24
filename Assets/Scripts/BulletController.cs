@@ -25,6 +25,9 @@ public class BulletController : MonoBehaviour
 
 
           
+        } if (other.CompareTag("ObjectsColliders"))
+        {
+            Destroy(gameObject);
         }
         Debug.Log("le dispare al enemigo");
     }
