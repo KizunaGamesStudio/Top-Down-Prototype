@@ -17,14 +17,25 @@ public class DestroyOutOfBounds : MonoBehaviour
     void Update()
     {
 
-        // If an object goes past the players view in the game, remove that object
+        // If an object goes past the camera's view, remove that object
         Vector3 viewportPos = mainCamera.WorldToViewportPoint(transform.position);
 
-        if (viewportPos.x < 0 || viewportPos.x > 1 || viewportPos.y < 0 || viewportPos.y > 1)
+        if (IsOutsideViewport(viewportPos))
         {
-            // Destroy the object if it's outside the screen
-            Destroy(gameObject);
+            HandleOutOfBounds();
         }
+    }
+
+    bool IsOutsideViewport(Vector3 viewportPos)
+    {
+        return viewportPos.x < 0 || viewportPos.x > 1 || viewportPos.y < 0 || viewportPos.y > 1;
+    }
+
+    void HandleOutOfBounds()
+    {
+        // Add specific handling for objects moving outside the camera view
+        // For example, destroy the object if it's outside the screen
+        Destroy(gameObject);
     }
 
 }

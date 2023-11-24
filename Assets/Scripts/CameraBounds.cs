@@ -28,4 +28,16 @@ public class CameraBounds : MonoBehaviour
     {
         return new Vector2(transform.position.x + cameraWidth, transform.position.y + cameraHeight);
     }
+
+    public Vector2 GetRandomPositionAboveCamera()
+    {
+        Vector2 maxBounds = GetMaxBounds();
+        float randomX = Random.Range(maxBounds.x, maxBounds.y);
+        float randomY = maxBounds.y + cameraHeight * 0.5f; // Spawn slightly above the camera's top boundary
+
+        // Generate position above the camera view
+        Vector2 randomPosition = new Vector2(randomX, randomY);
+        return randomPosition;
+    }
+
 }

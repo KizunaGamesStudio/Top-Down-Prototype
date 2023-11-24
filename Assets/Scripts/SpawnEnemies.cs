@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnEnemies : MonoBehaviour
 {
 
-    public GameObject[] spawnObject;
+    public GameObject[] spawnObjects;
 
     private float xBound = 8f;
     private float startDelay = 1.0f;
@@ -13,8 +13,11 @@ public class SpawnEnemies : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         float spawnInterval = Random.Range(3, 5);
-        InvokeRepeating("Spawn", startDelay, spawnInterval);
+        InvokeRepeating("SpawnRandomObject", startDelay, spawnInterval);
+        
+
     }
 
     // Update is called once per frame
@@ -26,15 +29,20 @@ public class SpawnEnemies : MonoBehaviour
 
 
 
-    void Spawn()
+    void SpawnRandomObject()
     {
+        int randomIndex = Random.Range(0, spawnObjects.Length); // Get a random index from the array
+        GameObject objectToSpawn = spawnObjects[randomIndex]; // Get the GameObject at the random index
 
-        float spawnPosYInterval = Random.Range(1, 7);
-        Vector2 spawnPos = new Vector2(Random.Range(-xBound, xBound), spawnPosYInterval);
+        float randomX = Random.Range(-xBound, xBound); // Random X within camera width (both positive and negative)
+        float randomY = CameraBounds.instance.GetMaxBounds().y + CameraBounds.instance.GetMaxBounds().x * 0.5f; // Spawn slightly above the camera's top boundary
 
-        int enemiesIndex = Random.Range(0, spawnObject.Length);
-        // instantiate ball at random spawn location
-        Instantiate(spawnObject[enemiesIndex], spawnPos, spawnObject[enemiesIndex].transform.rotation);
+        Vector2 randomPosition = new Vector2(randomX, randomY);
+        Instantiate(objectToSpawn, randomPosition, Quaternion.identity);
     }
 
+
 }
+
+
+
