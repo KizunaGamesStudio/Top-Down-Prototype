@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6549743768011691985}
   - component: {fileID: 6316493228697278388}
   - component: {fileID: 6608358775275819011}
-  - component: {fileID: 1125684516654236391}
   - component: {fileID: 9097709227308011378}
+  - component: {fileID: -4340555144107365177}
   m_Layer: 0
   m_Name: Enemy_02
   m_TagString: Enemy
@@ -160,18 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e515f5be932974392825ec91e35f4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1125684516654236391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4403632395749236836}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54c2f2ac897d5df499ba0a359110789d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &9097709227308011378
 Rigidbody2D:
   serializedVersion: 4
@@ -199,3 +187,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &-4340555144107365177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4403632395749236836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c2f2ac897d5df499ba0a359110789d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Gun2D : MonoBehaviour
 {
     public float moveSpeed = 5f; // Adjust as needed
 
@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
         transform.position = newPosition;
 
-
+     
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
@@ -56,7 +56,4 @@ public class PlayerController : MonoBehaviour
             bullet.GetComponent<Rigidbody2D>().velocity = bulletSpawnPoint.up * bulletSpedd;
         }
     }
-
-
-
 }
