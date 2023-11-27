@@ -15,20 +15,25 @@ public class BulletController : MonoBehaviour
     {
         
     }
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.CompareTag("Enemy"))
-        {
-            // Deal damage to the enemy or destroy it
-            Destroy(other.gameObject); // For example, destroy the enemy
-            Destroy(gameObject); // Destroy the bullet
-
-
-          
-        } if (other.CompareTag("ObjectsColliders"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             Destroy(gameObject);
+            Destroy(collision.gameObject); // Destroy the collided object tagged as "Enemy"
+
+
         }
-        Debug.Log("le dispare al enemigo");
+
+        if (collision.gameObject.CompareTag("ObjectsColliders"))
+        {
+            Destroy(gameObject);
+          
+
+
+        }
+
+
+
     }
 }
