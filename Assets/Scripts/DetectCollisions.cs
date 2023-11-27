@@ -27,7 +27,7 @@ public class DetectCollisions : MonoBehaviour
             string currentSceneName = SceneManager.GetActiveScene().name;
 
             // Reload the current scene
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("MainScene");
 
 
         
