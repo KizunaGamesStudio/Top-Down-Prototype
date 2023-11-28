@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class PlayerController : MonoBehaviour
     public Transform bulletSpawnPoint;
     public GameObject bulletPrefab;
     public float bulletSpedd = 10;
+    private Transform aimTransform;
+    public float bulletSpeed = 30f;
+
+
 
     // Start is called before the first frame update
     private Rigidbody2D rb;
@@ -20,6 +25,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         mainCamera = Camera.main;
+        aimTransform = transform.Find("BulletSpawnPoint");
 
 
         // Assuming the player has a SpriteRenderer component
@@ -50,13 +56,30 @@ public class PlayerController : MonoBehaviour
 
 
 
-        if (Input.GetKeyUp(KeyCode.Space))
+        Vector3 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 aimDirection = (mousePosition - transform.position).normalized;
+
+        float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+        aimTransform.rotation = Quaternion.Euler(0f, 0f, angle);
+
+        if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
-            var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = bulletSpawnPoint.up * bulletSpedd;
+            ShootBullet();
         }
+
+
+  
+
+
     }
 
+    void ShootBullet()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
+        // Set the velocity based on the direction the bullet should travel
+        rb.velocity = bulletSpawnPoint.up * bulletSpeed;
+    }
 
 }
