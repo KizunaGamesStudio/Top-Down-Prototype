@@ -147,10 +147,10 @@ TextureImporter:
       name: Forest Object_1
       rect:
         serializedVersion: 2
-        x: 1253
-        y: 2416
-        width: 168
-        height: 236
+        x: 1097
+        y: 3014
+        width: 479
+        height: 251
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: Forest Object_2
       rect:
         serializedVersion: 2
-        x: 52
-        y: 1245
-        width: 1180
-        height: 1125
+        x: 1253
+        y: 2416
+        width: 168
+        height: 236
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +189,10 @@ TextureImporter:
       name: Forest Object_3
       rect:
         serializedVersion: 2
-        x: 433
-        y: 656
-        width: 419
-        height: 506
+        x: 52
+        y: 1245
+        width: 1180
+        height: 1125
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,6 +210,27 @@ TextureImporter:
       name: Forest Object_4
       rect:
         serializedVersion: 2
+        x: 433
+        y: 656
+        width: 419
+        height: 506
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bdc8e4debc5fd44387cc37fd790358c
+      internalID: -1847803936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forest Object_5
+      rect:
+        serializedVersion: 2
         x: 313
         y: 89
         width: 1192
@@ -221,8 +242,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bdc8e4debc5fd44387cc37fd790358c
-      internalID: -1847803936
+      spriteID: 80f0a1a65a33f7b4ba7df351f96a36e2
+      internalID: -1550742843
       vertices: []
       indices: 
       edges: []
@@ -243,6 +264,7 @@ TextureImporter:
       Forest Object_2: -514374763
       Forest Object_3: -235861928
       Forest Object_4: -1847803936
+      Forest Object_5: -1550742843
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
