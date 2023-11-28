@@ -8,41 +8,40 @@ public class DetectCollisions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
     void reStartGame()
     {
-      
-            Debug.Log("Game over");
 
-            // Get the current scene's name
-            string currentSceneName = SceneManager.GetActiveScene().name;
+        Debug.Log("Game over");
 
-            // Reload the current scene
-            SceneManager.LoadScene("MainScene");
+        // Get the current scene's name
+        string currentSceneName = SceneManager.GetActiveScene().name;
+
+        // Reload the current scene
+        SceneManager.LoadScene("MainScene");
 
 
-        
+
     }
 
 
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(collision.gameObject.tag);
-        if (collision.gameObject.tag == "Enemy")
+        Debug.Log(other.gameObject.tag);
+        if (other.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("chocaste un enemigo!");
             reStartGame();
-
         }
     }
+
 }
