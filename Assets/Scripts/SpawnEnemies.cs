@@ -14,7 +14,7 @@ public class SpawnEnemies : MonoBehaviour
     void Start()
     {
 
-        float spawnInterval = Random.Range(3, 5);
+        float spawnInterval = Random.Range(1, 3);
         InvokeRepeating("SpawnRandomObject", startDelay, spawnInterval);
         
 
