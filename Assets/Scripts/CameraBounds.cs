@@ -70,7 +70,7 @@ private void Update()
 
 
   
-    private void nextLevel()
+    public void nextLevel()
     {
         if (!isMoving)
         {
