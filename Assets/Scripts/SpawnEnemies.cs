@@ -8,19 +8,41 @@ public class SpawnEnemies : MonoBehaviour
     public GameObject[] spawnObjects;
 
 
-    private float xBound = 8f;
-    private float startDelay = 1.0f;
+    public int numberOfEnemiesToSpawn = 10; // Number of enemies to spawn
+    public float spawnIntervalMin = 1.0f; // Minimum time between spawns
+    public float spawnIntervalMax = 3.0f; // Maximum time between spawns
+
+    private bool isSpawning = false;
 
     // Start is called before the first frame update
     void Start()
     {
 
 
-        float spawnInterval = Random.Range(1, 3);
-        InvokeRepeating("SpawnRandomObject", startDelay, spawnInterval);
+        isSpawning = true;
+        StartCoroutine(SpawnEnemiesCount());
 
 
 
+    }
+
+    IEnumerator SpawnEnemiesCount()
+    {
+        for (int i = 0; i < numberOfEnemiesToSpawn; i++)
+        {
+            if (isSpawning)
+            {
+                SpawnRandomObject();
+                float spawnInterval = Random.Range(spawnIntervalMin, spawnIntervalMax);
+                yield return new WaitForSeconds(spawnInterval);
+            }
+            else
+            {
+                yield break; // Exit the coroutine if spawning is stopped
+            }
+        }
+
+        isSpawning = false; // Stop spawning after the specified number of enemies are spawned
     }
 
     // Update is called once per frame
@@ -67,7 +89,11 @@ public class SpawnEnemies : MonoBehaviour
         Instantiate(objectToSpawn, randomPosition, Quaternion.identity);
     }
 
-
+    // Optionally, you can add a method to stop spawning prematurely
+    public void StopSpawning()
+    {
+        isSpawning = false;
+    }
 }
 
 
