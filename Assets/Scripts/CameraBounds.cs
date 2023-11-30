@@ -32,6 +32,7 @@ public class CameraBounds : MonoBehaviour
 
 private void Update()
     {
+        //nextLevel();
       
         if (isMoving)
         {
@@ -73,7 +74,7 @@ private void Update()
     {
         if (!isMoving)
         {
-            targetPosition = mainCamera.transform.position + Vector3.up * 7.0f;
+            targetPosition = mainCamera.transform.position + Vector3.up * 4.0f;
             isMoving = true;
         }
     }
