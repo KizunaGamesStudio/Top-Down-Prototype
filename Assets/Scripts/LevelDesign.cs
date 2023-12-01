@@ -27,7 +27,6 @@ public class LevelDesign : MonoBehaviour
         {
             Debug.Log("SpawnEnemies object found!");
             SpawnEnemiesScript = spawnEnemiesObject.GetComponent<SpawnEnemies>();
-
             // Spawn Enemies
             StartCoroutine(SpawnEnemiesScript.SpawnEnemiesCount(amountOfEnemies));
         }
@@ -36,10 +35,36 @@ public class LevelDesign : MonoBehaviour
             Debug.LogError("SpawnEnemies object not found!");
         }
 
+        StartCoroutine(CheckForNextLevel());
         StartCoroutine(CheckForEnemiesRoutine());
 
     }
 
+
+
+
+    IEnumerator CheckForNextLevel()
+    {
+        while (true)
+        {
+            yield return new WaitUntil(() => nextLevel); // Wait until nextLevel becomes true
+
+            // Reset nextLevel to false for the next iteration
+            nextLevel = false;
+
+            if (SpawnEnemiesScript != null)
+            {
+                // Start spawning enemies when nextLevel is true
+                StartCoroutine(SpawnEnemiesScript.SpawnEnemiesCount(amountOfEnemies));
+            }
+            else
+            {
+                Debug.LogError("SpawnEnemiesScript is null!");
+            }
+
+            yield return null; // Wait for the next frame before checking again
+        }
+    }
 
     void CheckNextLevel()
     {
