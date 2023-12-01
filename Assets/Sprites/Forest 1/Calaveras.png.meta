@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Calaveras_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512.6666
+        width: 257
+        height: 256.33334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d88272e8de5e6cb45983ac2cdc9782ab
+      internalID: 2051920160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Calaveras_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256.66666
+        width: 257
+        height: 256.33334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23b073d1640febc4193f7791f5d2e9af
+      internalID: -1379769930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Calaveras_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.6666565
+        width: 257
+        height: 256.33334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af21764226177a34e8a77ce09c182a01
+      internalID: -538807473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +195,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Calaveras_0: 2051920160
+      Calaveras_1: -1379769930
+      Calaveras_2: -538807473
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
