@@ -20,14 +20,17 @@ public class SpawnEnemies : MonoBehaviour
 
 
         isSpawning = true;
-        StartCoroutine(SpawnEnemiesCount(10));
+        //StartCoroutine(SpawnEnemiesCount(10));
 
 
 
     }
 
-    IEnumerator SpawnEnemiesCount(int numberOfEnemiesToSpawn)
+    public IEnumerator SpawnEnemiesCount(int numberOfEnemiesToSpawn)
     {
+
+        yield return new WaitForSeconds(0.1f);
+
         for (int i = 0; i < numberOfEnemiesToSpawn; i++)
         {
             if (isSpawning)
@@ -41,8 +44,6 @@ public class SpawnEnemies : MonoBehaviour
                 yield break; // Exit the coroutine if spawning is stopped
             }
         }
-
-        isSpawning = false; // Stop spawning after the specified number of enemies are spawned
     }
 
     // Update is called once per frame
