@@ -66,24 +66,7 @@ public class LevelDesign : MonoBehaviour
         }
     }
 
-    void CheckNextLevel()
-    {
-        GameObject spawnEnemiesObject = GameObject.FindGameObjectWithTag("SpawnEnemies");
-        if (spawnEnemiesObject != null)
-        {
-            Debug.Log("SpawnEnemies object found!");
-            SpawnEnemies spawnEnemiesScript = spawnEnemiesObject.GetComponent<SpawnEnemies>();
-
-            // Spawn Enemies
-            int amountOfEnemies = 10; // Replace this with the desired number of enemies
-            StartCoroutine(spawnEnemiesScript.SpawnEnemiesCount(amountOfEnemies));
-        }
-        else
-        {
-            Debug.LogError("SpawnEnemies object not found!");
-        }
-    }
-
+ 
     // Update is called once per frame
     void Update()
     {
@@ -96,21 +79,6 @@ public class LevelDesign : MonoBehaviour
 
 
 
-
-
-    private void checkForEnemiesAfter()
-    {
-
-        if (!hasFunctionExecuted)
-        {
-            elapsedTime += Time.deltaTime;
-
-            if (elapsedTime >= delayTimer)
-            {
-                hasFunctionExecuted = true; // Set this to prevent repeated calls
-            }
-        }
-    }
 
     IEnumerator CheckForEnemiesRoutine()
     {
