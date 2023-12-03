@@ -6,16 +6,18 @@ using UnityEngine;
 public class LevelDesign : MonoBehaviour
 {
     SpawnEnemies SpawnEnemiesScript;
-    private float delayTimer = 5f; // 5-second delay
+    private float delayTimer = 1f; // 5-second delay
     private float elapsedTime = 0f;
     private bool hasFunctionExecuted = false;
     public bool isEnemiesinTheScene = false;
     public int amountOfEnemies = 2;
-    public float checkInterval = 3f; // Check interval in seconds
+    public float checkInterval = 20f; // Check interval in seconds
     public bool nextLevel = false;
+    public int amountOfRoundOfEnemies = 0;
 
 
-     CameraBounds cameraBoundsScript;
+
+    CameraBounds cameraBoundsScript;
 
     // Start is called before the first frame update
     void Start()
@@ -25,18 +27,12 @@ public class LevelDesign : MonoBehaviour
 
 
         GameObject spawnEnemiesObject = GameObject.FindGameObjectWithTag("SpawnEnemies");
-        if (spawnEnemiesObject != null)
-        {
-            Debug.Log("SpawnEnemies object found!");
-            SpawnEnemiesScript = spawnEnemiesObject.GetComponent<SpawnEnemies>();
-            // Spawn Enemies
-            StartCoroutine(SpawnEnemiesScript.SpawnEnemiesCount(amountOfEnemies));
-        }
-        else
-        {
-            Debug.LogError("SpawnEnemies object not found!");
-        }
+       
+       SpawnEnemiesScript = spawnEnemiesObject.GetComponent<SpawnEnemies>();
 
+
+
+        StartCoroutine(SpawnEnemiesScript.SpawnEnemiesCount(amountOfEnemies));
         StartCoroutine(CheckForNextLevel());
         StartCoroutine(CheckForEnemiesRoutine());
 
@@ -57,7 +53,8 @@ public class LevelDesign : MonoBehaviour
             if (SpawnEnemiesScript != null)
             {
                 // Start spawning enemies when nextLevel is true
-                StartCoroutine(SpawnEnemiesScript.SpawnEnemiesCount(amountOfEnemies));
+                // StartCoroutine(SpawnEnemiesScript.SpawnEnemiesCount(amountOfEnemies));
+                cameraBoundsScript.nextLevel();
             }
             else
             {
@@ -78,11 +75,6 @@ public class LevelDesign : MonoBehaviour
 
 
 
-  
-
-
-
-
     IEnumerator CheckForEnemiesRoutine()
     {
         while (true) // Infinite loop to continuously check
@@ -91,24 +83,33 @@ public class LevelDesign : MonoBehaviour
 
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-            if (enemies.Length == 0 && isEnemiesinTheScene)
+            if (enemies.Length == 0 && isEnemiesinTheScene && amountOfRoundOfEnemies > 2)
             {
                 isEnemiesinTheScene = false;
                 Debug.Log("No enemies found in the scene.");
+
                 cameraBoundsScript.nextLevel();
-                 nextLevel = true;
+                nextLevel = true;
+                amountOfRoundOfEnemies = 0;
 
+            } 
 
-                // Perform actions when no enemies are found
-            }
             else if (enemies.Length > 0 && !isEnemiesinTheScene)
             {
                 isEnemiesinTheScene = true;
                 Debug.Log("Enemies found in the scene.");
                 nextLevel = false;
                 // Perform actions when enemies are found
+           
+            
             }
+            StartCoroutine(SpawnEnemiesScript.SpawnEnemiesCount(amountOfEnemies));
+            amountOfRoundOfEnemies++;
         }
     }
+
+
+
+ 
 }
 

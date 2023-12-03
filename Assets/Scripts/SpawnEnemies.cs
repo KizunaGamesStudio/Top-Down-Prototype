@@ -9,8 +9,8 @@ public class SpawnEnemies : MonoBehaviour
 
 
     //public int numberOfEnemiesToSpawn = 10; // Number of enemies to spawn
-    public float spawnIntervalMin = 1.0f; // Minimum time between spawns
-    public float spawnIntervalMax = 3.0f; // Maximum time between spawns
+    public float spawnIntervalMin = 5.0f; // Minimum time between spawns
+    public float spawnIntervalMax = 8.0f; // Maximum time between spawns
 
     private bool isSpawning = false;
 
@@ -29,7 +29,7 @@ public class SpawnEnemies : MonoBehaviour
     public IEnumerator SpawnEnemiesCount(int numberOfEnemiesToSpawn)
     {
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(10.0f);
 
         for (int i = 0; i < numberOfEnemiesToSpawn; i++)
         {
