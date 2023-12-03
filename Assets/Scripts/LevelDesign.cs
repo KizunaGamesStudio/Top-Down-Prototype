@@ -11,16 +11,18 @@ public class LevelDesign : MonoBehaviour
     private bool hasFunctionExecuted = false;
     public bool isEnemiesinTheScene = false;
     public int amountOfEnemies = 2;
-    public float checkInterval = 5f; // Check interval in seconds
-    bool nextLevel = false;
+    public float checkInterval = 3f; // Check interval in seconds
+    public bool nextLevel = false;
 
 
-    private CameraBounds cameraBoundsScript;
+     CameraBounds cameraBoundsScript;
+
     // Start is called before the first frame update
     void Start()
     {
+     
 
-        cameraBoundsScript = GetComponent<CameraBounds>();
+
 
         GameObject spawnEnemiesObject = GameObject.FindGameObjectWithTag("SpawnEnemies");
         if (spawnEnemiesObject != null)
@@ -70,7 +72,8 @@ public class LevelDesign : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        GameObject cameraBoundsObject = GameObject.FindGameObjectWithTag("MainCamera");
+        cameraBoundsScript = cameraBoundsObject.GetComponent<CameraBounds>();
     }
 
 
