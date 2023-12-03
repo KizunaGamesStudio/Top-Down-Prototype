@@ -11,9 +11,10 @@ public class LevelDesign : MonoBehaviour
     private bool hasFunctionExecuted = false;
     public bool isEnemiesinTheScene = false;
     public int amountOfEnemies = 2;
-    public float checkInterval = 20f; // Check interval in seconds
+    public float checkInterval = 01f; // Check interval in seconds
     public bool nextLevel = false;
-    public int amountOfRoundOfEnemies = 0;
+    public int numberOfOlasPerLevel = 2;
+
 
 
 
@@ -32,9 +33,12 @@ public class LevelDesign : MonoBehaviour
 
 
 
-        StartCoroutine(SpawnEnemiesScript.SpawnEnemiesCount(amountOfEnemies));
+        //StartCoroutine(SpawnEnemiesScript.SpawnEnemiesCount(amountOfEnemies));
         StartCoroutine(CheckForNextLevel());
-        StartCoroutine(CheckForEnemiesRoutine());
+      
+
+
+        //nvokeRepeating("SpawnEnemiesScript.SpawnEnemiesCount", 0.2f, 05.0f);
 
     }
 
@@ -69,30 +73,33 @@ public class LevelDesign : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        CheckForEnemiesRoutine();
         GameObject cameraBoundsObject = GameObject.FindGameObjectWithTag("MainCamera");
         cameraBoundsScript = cameraBoundsObject.GetComponent<CameraBounds>();
     }
 
 
 
-    IEnumerator CheckForEnemiesRoutine()
+    void  CheckForEnemiesRoutine()
     {
-        while (true) // Infinite loop to continuously check
-        {
-            yield return new WaitForSeconds(checkInterval); // Wait for the specified interval
-
+      
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-            if (enemies.Length == 0 && isEnemiesinTheScene && amountOfRoundOfEnemies > 2)
+            if (enemies.Length == 0 && isEnemiesinTheScene && SpawnEnemiesScript.amountOfRoundOfEnemies > numberOfOlasPerLevel)
             {
                 isEnemiesinTheScene = false;
                 Debug.Log("No enemies found in the scene.");
 
                 cameraBoundsScript.nextLevel();
                 nextLevel = true;
-                amountOfRoundOfEnemies = 0;
+               SpawnEnemiesScript.amountOfRoundOfEnemies = 0;
+            SpawnEnemiesScript.isSpawning = true;
 
-            } 
+            } else if( SpawnEnemiesScript.amountOfRoundOfEnemies > numberOfOlasPerLevel )
+                     {
+                         SpawnEnemiesScript.isSpawning = false;
+                     }
 
             else if (enemies.Length > 0 && !isEnemiesinTheScene)
             {
@@ -103,9 +110,8 @@ public class LevelDesign : MonoBehaviour
            
             
             }
-            StartCoroutine(SpawnEnemiesScript.SpawnEnemiesCount(amountOfEnemies));
-            amountOfRoundOfEnemies++;
-        }
+          
+        
     }
 
 

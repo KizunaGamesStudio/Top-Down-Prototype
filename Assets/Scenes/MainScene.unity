@@ -774,6 +774,59 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &702448032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 702448034}
+  - component: {fileID: 702448033}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &702448033
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702448032}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &702448034
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702448032}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.27, y: 11.74, z: -10.131114}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &748234078
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,6 +877,9 @@ MonoBehaviour:
   - {fileID: 4700043476781689264, guid: 715f12cec300d6e4986cce715bd0e2b2, type: 3}
   spawnIntervalMin: 1
   spawnIntervalMax: 2
+  isSpawning: 0
+  amountOfRoundOfEnemies: 0
+  numberEnemiesToSpawn: 2
 --- !u!1 &1275719823
 GameObject:
   m_ObjectHideFlags: 0
@@ -7739,6 +7795,7 @@ MonoBehaviour:
   amountOfEnemies: 2
   checkInterval: 5
   nextLevel: 0
+  numberOfOlasPerLevel: 2
 --- !u!4 &1691301787
 Transform:
   m_ObjectHideFlags: 0
@@ -8662,3 +8719,4 @@ SceneRoots:
   - {fileID: 1326281544}
   - {fileID: 1275719826}
   - {fileID: 1691301787}
+  - {fileID: 702448034}

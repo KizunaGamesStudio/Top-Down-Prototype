@@ -12,38 +12,38 @@ public class SpawnEnemies : MonoBehaviour
     public float spawnIntervalMin = 5.0f; // Minimum time between spawns
     public float spawnIntervalMax = 8.0f; // Maximum time between spawns
 
-    private bool isSpawning = false;
-
+    public bool isSpawning = false;
+    public int amountOfRoundOfEnemies = 0;
+    public int numberEnemiesToSpawn = 2;
     // Start is called before the first frame update
     void Start()
     {
 
 
         isSpawning = true;
-        //StartCoroutine(SpawnEnemiesCount(10));
+        InvokeRepeating("SpawnEnemiesCount", 0.2f, 05.0f);
 
 
 
     }
 
-    public IEnumerator SpawnEnemiesCount(int numberOfEnemiesToSpawn)
+    public void SpawnEnemiesCount()
     {
 
-        yield return new WaitForSeconds(10.0f);
+        if (isSpawning)
 
-        for (int i = 0; i < numberOfEnemiesToSpawn; i++)
         {
-            if (isSpawning)
-            {
+            for (int i = 0; i < numberEnemiesToSpawn; i++) 
+            {   
                 SpawnRandomObject();
-                float spawnInterval = Random.Range(spawnIntervalMin, spawnIntervalMax);
-                yield return new WaitForSeconds(spawnInterval);
-            }
-            else
-            {
-                yield break; // Exit the coroutine if spawning is stopped
-            }
+                float spawnInterval = Random.Range(spawnIntervalMin, spawnIntervalMax);       
+             }
+           
+            amountOfRoundOfEnemies++;
+
         }
+
+
     }
 
     // Update is called once per frame
@@ -52,6 +52,7 @@ public class SpawnEnemies : MonoBehaviour
 
 
     }
+
 
 
 
