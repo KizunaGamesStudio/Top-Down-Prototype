@@ -4,25 +4,30 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    // Start is called before the first frame update
+   
+    //EnemyController enemyControllerScript;
+
     void Start()
     {
-        
-    }
+       // GameObject EnemyControllerObject = GameObject.FindWithTag("Enemy");
+       // enemyControllerScript = EnemyControllerObject.GetComponent<EnemyController>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+      
+
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(gameObject);
-            Destroy(collision.gameObject); // Destroy the collided object tagged as "Enemy"
+            EnemyController enemyControllerScript = collision.gameObject.GetComponent<EnemyController>();
 
-
+            if (enemyControllerScript != null)
+            {
+                enemyControllerScript.TakeDamage(1);
+                Destroy(gameObject); // Destroy the bullet after hitting the enemy
+            }
         }
 
         if (collision.gameObject.CompareTag("ObjectsColliders"))
