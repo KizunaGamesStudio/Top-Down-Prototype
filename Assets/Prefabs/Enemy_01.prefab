@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 1
+  changeBehaviorCooldown: 2
 --- !u!114 &2387246897625318403
 MonoBehaviour:
   m_ObjectHideFlags: 0
