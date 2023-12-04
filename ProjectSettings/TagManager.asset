@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - ObjectsColliders
   - SpawnEnemies
+  - GameManager
   layers:
   - Default
   - TransparentFX

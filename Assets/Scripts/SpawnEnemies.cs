@@ -6,6 +6,9 @@ public class SpawnEnemies : MonoBehaviour
 {
 
     public GameObject[] spawnObjects;
+    public GameObject[] spawnObjectsSecond;
+
+    LevelDesign LevelDesignScript;
 
 
     //public int numberOfEnemiesToSpawn = 10; // Number of enemies to spawn
@@ -18,6 +21,8 @@ public class SpawnEnemies : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject levelDesingObject = GameObject.Find("GameManager");
+        LevelDesignScript = levelDesingObject.GetComponent<LevelDesign>();
 
 
         isSpawning = true;
@@ -34,10 +39,18 @@ public class SpawnEnemies : MonoBehaviour
 
         {
             for (int i = 0; i < numberEnemiesToSpawn; i++) 
-            {   
-                SpawnRandomObject();
-                float spawnInterval = Random.Range(spawnIntervalMin, spawnIntervalMax);       
-             }
+            {
+                if (LevelDesignScript.numberOfLevels <= 2) {
+                    SpawnRandomObjectfirstLevel();
+                    float spawnInterval = Random.Range(spawnIntervalMin, spawnIntervalMax);
+                } else if (LevelDesignScript.numberOfLevels >= 2 )
+                {
+                    SpawnRandomObjectSecondLevel();
+                    float spawnInterval = Random.Range(spawnIntervalMin, spawnIntervalMax);
+
+                }
+
+            }
            
             amountOfRoundOfEnemies++;
 
@@ -50,17 +63,51 @@ public class SpawnEnemies : MonoBehaviour
     void Update()
     {
 
-
+    
     }
 
 
 
 
 
-    void SpawnRandomObject()
+    void SpawnRandomObjectfirstLevel()
     {
         int randomIndex = Random.Range(0, spawnObjects.Length); // Get a random index from the array
         GameObject objectToSpawn = spawnObjects[randomIndex]; // Get the GameObject at the random index
+
+        float randomX, randomY;
+
+        // Randomize the spawning position outside the camera's bounds
+        int randomSide = Random.Range(0, 3); // 0: left, 1: up, 2: right
+
+        switch (randomSide)
+        {
+            case 0: // Left side
+                randomX = CameraBounds.instance.GetMinBounds().x - 1.0f; // Spawn slightly to the left of the camera
+                randomY = Random.Range(CameraBounds.instance.GetMinBounds().y, CameraBounds.instance.GetMaxBounds().y);
+                break;
+            case 1: // Up (top) side
+                randomX = Random.Range(CameraBounds.instance.GetMinBounds().x, CameraBounds.instance.GetMaxBounds().x);
+                randomY = CameraBounds.instance.GetMaxBounds().y + 1.0f; // Spawn slightly above the camera's top boundary
+                break;
+            case 2: // Right side
+                randomX = CameraBounds.instance.GetMaxBounds().x + 1.0f; // Spawn slightly to the right of the camera
+                randomY = Random.Range(CameraBounds.instance.GetMinBounds().y, CameraBounds.instance.GetMaxBounds().y);
+                break;
+            default:
+                randomX = 0f;
+                randomY = 0f;
+                break;
+        }
+
+        Vector2 randomPosition = new Vector2(randomX, randomY);
+        Instantiate(objectToSpawn, randomPosition, Quaternion.identity);
+    }
+
+    void SpawnRandomObjectSecondLevel()
+    {
+        int randomIndex = Random.Range(0, spawnObjectsSecond.Length); // Get a random index from the array
+        GameObject objectToSpawn = spawnObjectsSecond[randomIndex]; // Get the GameObject at the random index
 
         float randomX, randomY;
 
