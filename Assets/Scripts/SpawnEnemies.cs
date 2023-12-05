@@ -8,6 +8,7 @@ public class SpawnEnemies : MonoBehaviour
     public GameObject[] spawnObjects;
     public GameObject[] spawnObjectsSecond;
 
+
     LevelDesign LevelDesignScript;
 
 
