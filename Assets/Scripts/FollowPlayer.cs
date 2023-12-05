@@ -5,7 +5,7 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour
 {
 
-    public float movementSpeed = 2.0f;
+   public float movementSpeed = 2.0f;
     public float changeBehaviorCooldown = 2.0f; // Time in seconds for random movement
     private Transform player;
     private bool isCollided = false;

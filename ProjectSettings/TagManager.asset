@@ -10,6 +10,7 @@ TagManager:
   - ObjectsColliders
   - SpawnEnemies
   - GameManager
+  - HealthBar
   layers:
   - Default
   - TransparentFX
