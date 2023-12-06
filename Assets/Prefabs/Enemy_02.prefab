@@ -361,6 +361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 2
+  HealthBarScript: {fileID: 0}
 --- !u!114 &3040632915235236796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,7 +374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf566b82fe9194445a1c391fbd8eade2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 1
+  movementSpeed: 1.5
   changeBehaviorCooldown: 2
 --- !u!1 &5797675450680957412
 GameObject:
@@ -540,7 +541,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &2602635413730650826
 MonoBehaviour:
