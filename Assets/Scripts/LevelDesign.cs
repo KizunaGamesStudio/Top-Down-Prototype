@@ -10,7 +10,7 @@ public class LevelDesign : MonoBehaviour
     private float elapsedTime = 0f;
     private bool hasFunctionExecuted = false;
     public bool isEnemiesinTheScene = false;
-    public int amountOfEnemies = 2;
+    private int amountOfEnemies = 10;
     public float checkInterval = 01f; // Check interval in seconds
     public bool nextLevel = false;
     public int numberOfRoundsPerLevel = 3;
@@ -62,6 +62,9 @@ public class LevelDesign : MonoBehaviour
                 // StartCoroutine(SpawnEnemiesScript.SpawnEnemiesCount(amountOfEnemies));
                 cameraBoundsScript.nextLevel();
                 numberOfLevels++;
+                amountOfEnemies = amountOfEnemies + 5;
+                //numberOfRoundsPerLevel = numberOfRoundsPerLevel + 1;
+
             }
             else
             {
