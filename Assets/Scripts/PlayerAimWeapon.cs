@@ -10,7 +10,7 @@ public class PlayerAimWeapon : MonoBehaviour
 
     private Camera mainCamera;
     private Transform aimTransform;
-    private float speed = 25f;
+    private float speed = 50f;
 
     private void Awake()
     {
@@ -37,9 +37,21 @@ public class PlayerAimWeapon : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
-        // Set the velocity based on the aim direction and desired bullet speed
-        rb.velocity = direction * speed; // Modify speed as needed
+        // Calculate the direction from the player towards the mouse position
+        Vector3 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 shootDirection = (mousePosition - bulletSpawnPoint.position).normalized;
+
+        // Incrementa la magnitud del vector de dirección para aumentar la velocidad
+        shootDirection *= speed; // Multiplica por un factor mayor para aumentar la velocidad
+
+        // Set the velocity based on the direction and desired bullet speed
+        rb.velocity = shootDirection; // Asigna el vector de dirección modificado como velocidad
+
+        rb.AddForce(shootDirection, ForceMode2D.Impulse); // Add force to the bullet
+
     }
+
+
 
 
 
