@@ -1091,11 +1091,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1275719826}
   - component: {fileID: 1275719825}
-  - component: {fileID: 1275719824}
   - component: {fileID: 1275719827}
   - component: {fileID: 1275719828}
   - component: {fileID: 1275719829}
   - component: {fileID: 1275719830}
+  - component: {fileID: 1275719831}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1103,20 +1103,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1275719824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1275719823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db4d9efc6858d7746a2ae68715b33e2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 395032608522266953, guid: be4094b742bbf3b47a51671b82955fee, type: 3}
-  bulletSpawnPoint: {fileID: 1770040626}
 --- !u!212 &1275719825
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1282,6 +1268,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c2f2ac897d5df499ba0a359110789d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1275719831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275719823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ab70c787f6a6fe438054c74653fabbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 395032608522266953, guid: be4094b742bbf3b47a51671b82955fee, type: 3}
 --- !u!1 &1326281542
 GameObject:
   m_ObjectHideFlags: 0
@@ -12849,7 +12848,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1770040626
 Transform:
   m_ObjectHideFlags: 0
@@ -12859,8 +12858,8 @@ Transform:
   m_GameObject: {fileID: 1770040625}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.723, z: 0}
+  m_LocalScale: {x: 1, y: 0.50729996, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5351893}
