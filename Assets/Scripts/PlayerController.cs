@@ -42,4 +42,6 @@ public class PlayerController : MonoBehaviour
 		// Adds velocity to the bullet
 		bullet.GetComponent<Rigidbody2D> ().velocity = direction * bulletSpeed;
     }
+
+    
 }
