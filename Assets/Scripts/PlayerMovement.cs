@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public int MovementSpeed;
 
     private bool _moving;
+        Vector2 rotationDirection;
 
     public void Start()
     {
@@ -24,15 +25,16 @@ public class PlayerMovement : MonoBehaviour
 
     public void Update()
     {
-        SetDirection();
+        //SetDirection();
         Move();
         //ChangeState();
         //Actions();
+        RotatePlayer();
 
         if (Input.GetKeyDown(KeyCode.R))
-            {
+        {
                 Character.AnimationManager.SetState(CharacterState.Run);
-            }
+        }
     }
 
     private void SetDirection()
@@ -58,6 +60,25 @@ public class PlayerMovement : MonoBehaviour
         else return;
 
         Character.SetDirection(direction);
+    }
+
+    void RotatePlayer(){
+        var playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
+        Debug.Log(Input.mousePosition.x - playerScreenPoint.x);
+
+        if(Input.mousePosition.x < playerScreenPoint.x) {
+            rotationDirection = Vector2.left;
+        } else if(Input.mousePosition.x > playerScreenPoint.x) {
+            rotationDirection = Vector2.right;
+        }
+
+        if(Input.mousePosition.y < playerScreenPoint.y && ((Input.mousePosition.x - playerScreenPoint.x) > -45 && (Input.mousePosition.x - playerScreenPoint.x) < 45)){
+            rotationDirection = Vector2.down;
+        }else if(Input.mousePosition.y > playerScreenPoint.y && ((Input.mousePosition.x - playerScreenPoint.x) > -60 && (Input.mousePosition.x - playerScreenPoint.x) < 60)){
+            rotationDirection = Vector2.up;
+        }
+        
+        Character.SetDirection(rotationDirection);
     }
 
     private void Move()
