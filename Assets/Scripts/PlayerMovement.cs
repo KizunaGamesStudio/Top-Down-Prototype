@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Start()
     {
-        Character.AnimationManager.SetState(CharacterState.Idle);
+        Character.AnimationManager.SetState(CharacterState.Ready);
 
         if (InitDirection)
         {
