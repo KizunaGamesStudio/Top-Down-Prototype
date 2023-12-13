@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
         Move();
         //ChangeState();
         //Actions();
-        RotatePlayer();
+        //RotatePlayer();
 
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -111,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (_moving)
             {
-                Character.AnimationManager.SetState(CharacterState.Idle);
+                Character.AnimationManager.SetState(CharacterState.Ready);
                 _moving = false;
             }
         }

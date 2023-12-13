@@ -106,6 +106,7 @@ namespace Assets.HeroEditor4D.Common.Scripts.ExampleScripts
         {
             if (Input.GetKeyDown(KeyCode.S))
             {
+                Debug.Log("HERE");
                 switch (Character.WeaponType)
                 {
                     case WeaponType.Melee1H:
@@ -129,7 +130,8 @@ namespace Assets.HeroEditor4D.Common.Scripts.ExampleScripts
             }
             else if (Input.GetKey(KeyCode.F))
             {
-                if (Character.AnimationManager.IsAction) return;
+                Debug.Log(Character.WeaponType);
+                //if (Character.AnimationManager.IsAction) return;
 
                 switch (Character.WeaponType)
                 {
@@ -139,17 +141,22 @@ namespace Assets.HeroEditor4D.Common.Scripts.ExampleScripts
                     case WeaponType.Firearm1H:
                     case WeaponType.Firearm2H:
                     {
+                        Debug.Log(Character.WeaponType);
                         Character.AnimationManager.Fire();
 
                         if (Character.Parts[0].PrimaryWeapon != null)
                         {
+                            Debug.Log("f");
                             var firearm = Character.SpriteCollection.Firearm1H.SingleOrDefault(i => i.Sprites.Contains(Character.Parts[0].PrimaryWeapon))
                                 ?? Character.SpriteCollection.Firearm2H.SingleOrDefault(i => i.Sprites.Contains(Character.Parts[0].PrimaryWeapon));
 
                             if (firearm != null)
                             {
+                            Debug.Log("not null");
                                 FirearmFx.CreateFireMuzzle(firearm.Name, firearm.Collection);
                             }
+                        }else{
+                            Debug.Log("ELSE");
                         }
 
                         break;
