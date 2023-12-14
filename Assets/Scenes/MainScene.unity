@@ -1191,7 +1191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjects:
   - {fileID: 1538055950292139837, guid: 2c2e4c19a057cea44b4e05fd0a8eafba, type: 3}
-  - {fileID: 1211081747880759467, guid: 69cdfc296a514c04bb50b5989d39eb4b, type: 3}
+  - {fileID: 1825246207460696979, guid: b588478a9613f394087d2d2cc01d342f, type: 3}
   spawnObjectsSecond:
   - {fileID: 7877422442643296561, guid: e9b790c5114c9434d8822df90fea882d, type: 3}
   - {fileID: 6338403955637369352, guid: d1cf2192b4c1dd9459f86c73932f859c, type: 3}
