@@ -1199,7 +1199,7 @@ MonoBehaviour:
   spawnIntervalMax: 2
   isSpawning: 0
   amountOfRoundOfEnemies: 0
-  numberEnemiesToSpawn: 3
+  numberEnemiesToSpawn: 2
 --- !u!1001 &855027061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13419,7 +13419,7 @@ MonoBehaviour:
   isEnemiesinTheScene: 0
   checkInterval: 5
   nextLevel: 0
-  numberOfRoundsPerLevel: 3
+  numberOfRoundsPerLevel: 1
   numberOfLevels: 0
 --- !u!4 &1691301787
 Transform:
