@@ -1,19 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using Assets.HeroEditor4D.Common.Scripts.CharacterScripts;
+using Assets.HeroEditor4D.Common.Scripts.Enums;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
 
+    public Character4D Character;
+
+
     [SerializeField] private float health, maxHealth = 3.0f;
     Rigidbody2D rb;
     [SerializeField] FloatingHealthBar HealthBarScript;
 
+
     // Start is called before the first frame update
     void Start()
     {
- 
 
+       
 
         health = maxHealth;
        HealthBarScript.UpdateHealthBar(health, maxHealth);

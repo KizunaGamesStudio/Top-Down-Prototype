@@ -376,6 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 2
   changeBehaviorCooldown: 2
+  Character: {fileID: 0}
 --- !u!114 &543977017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,6 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f784184f303e8d4ba8fa20d0080c289, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Character: {fileID: 0}
   health: 0
   maxHealth: 3
   HealthBarScript: {fileID: 0}
@@ -1188,16 +1190,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnObjects:
-  - {fileID: 4700043476781689264, guid: 7a671c1b04f9fcf449714eb9e78e6a45, type: 3}
-  - {fileID: 4700043476781689264, guid: e6092f41989de4f45be0cb61cffb3701, type: 3}
+  - {fileID: 1538055950292139837, guid: 2c2e4c19a057cea44b4e05fd0a8eafba, type: 3}
+  - {fileID: 1211081747880759467, guid: 69cdfc296a514c04bb50b5989d39eb4b, type: 3}
   spawnObjectsSecond:
-  - {fileID: 4700043476781689264, guid: 715f12cec300d6e4986cce715bd0e2b2, type: 3}
-  - {fileID: 4700043476781689264, guid: 57e5076725053a24da1b0acc79d93814, type: 3}
+  - {fileID: 7877422442643296561, guid: e9b790c5114c9434d8822df90fea882d, type: 3}
+  - {fileID: 6338403955637369352, guid: d1cf2192b4c1dd9459f86c73932f859c, type: 3}
   spawnIntervalMin: 1
   spawnIntervalMax: 2
   isSpawning: 0
   amountOfRoundOfEnemies: 0
-  numberEnemiesToSpawn: 6
+  numberEnemiesToSpawn: 3
 --- !u!1001 &855027061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1376,6 +1378,10 @@ PrefabInstance:
     - target: {fileID: 5092732405392395118, guid: 6ae983a2448c09f41b022032e55a9e92, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6563644870319899214, guid: 6ae983a2448c09f41b022032e55a9e92, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8805228661503993981, guid: 6ae983a2448c09f41b022032e55a9e92, type: 3}
       propertyPath: m_LocalScale.x

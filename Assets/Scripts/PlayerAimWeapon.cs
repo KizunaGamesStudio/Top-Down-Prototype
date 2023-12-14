@@ -10,7 +10,7 @@ public class PlayerAimWeapon : MonoBehaviour
 
     private Camera mainCamera;
     private Transform aimTransform;
-    private float speed = 250f;
+    private float speed = 30f;
 
     private void Awake()
     {

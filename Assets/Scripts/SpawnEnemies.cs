@@ -49,6 +49,9 @@ public class SpawnEnemies : MonoBehaviour
                     SpawnRandomObjectSecondLevel();
                     float spawnInterval = Random.Range(spawnIntervalMin, spawnIntervalMax);
 
+                } else if (LevelDesignScript.numberOfLevels == 40)
+                {
+                    isSpawning = false;
                 }
 
             }
