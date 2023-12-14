@@ -14,6 +14,7 @@ public class FollowPlayer : MonoBehaviour
     private float behaviorTimer = 0.0f;
     private Vector2 randomDirection; // Store the current random direction
     public Character4D Character;
+ 
   
 
     // setState activa la animacion
@@ -44,10 +45,10 @@ public class FollowPlayer : MonoBehaviour
     {
 
 
-        if (!isCollided && player != null)
+        if (!isCollided && player != null )
         {
             FollowPlayerMovement();
-
+         
         }
         else
         {
@@ -68,11 +69,12 @@ public class FollowPlayer : MonoBehaviour
 
     void FollowPlayerMovement()
     {
+    
         Vector3 direction = player.position - transform.position;
         direction.Normalize();
 
         //transform.position += direction * movementSpeed * Time.deltaTime;
-        // Character.SetDirection(ConvertTo2D(direction)); // Pass the direction to the character script
+       // Character.SetDirection(ConvertTo2D(direction)); // Pass the direction to the character script
 
 
         //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -85,8 +87,8 @@ public class FollowPlayer : MonoBehaviour
         // Check movement direction
         bool isMovingRight = direction.x > 0f;
         bool isMovingLeft = direction.x < 0f;
-        bool isMovingUp = direction.y > 2f;
-        bool isMovingDown = direction.y < -1f;
+        bool isMovingUp = direction.y > 0f;
+        bool isMovingDown = direction.y < 0f;
 
         if (isMovingRight)
         {
@@ -97,19 +99,19 @@ public class FollowPlayer : MonoBehaviour
         else if (isMovingLeft)
         {
             // Perform actions when the character is moving left
-            Character.SetDirection(Vector2.left);
+          Character.SetDirection(Vector2.left);
 
             // Add your logic here
         }
 
-        if (direction.y > 0 && (direction.x < 1) && (direction.x > -1))
+        if (isMovingUp)
         {
             // Perform actions when the character is moving up
             Character.SetDirection(Vector2.up);
 
             // Add your logic here
         }
-        else if (direction.y < 0 && (direction.x < 1) && (direction.x > -1))
+        else if (isMovingDown)
         {
             // Perform actions when the character is moving down
             Character.SetDirection(Vector2.down);
@@ -119,8 +121,8 @@ public class FollowPlayer : MonoBehaviour
     }
 
 
-    
 
+ 
     void MoveRandomly()
     {
         // Move in the current random direction
@@ -138,6 +140,8 @@ public class FollowPlayer : MonoBehaviour
             isCollided = true;
             // Set a new random direction upon collision
             randomDirection = Random.insideUnitCircle.normalized;
+
+
         }
     }
 }
