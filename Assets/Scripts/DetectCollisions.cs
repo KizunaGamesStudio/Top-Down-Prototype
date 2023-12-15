@@ -36,14 +36,14 @@ public class DetectCollisions : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            Debug.Log("chocaste un enemigo!");
-            reStartGame();
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Enemy"))
+    //    {
+    //        Debug.Log("chocaste un enemigo!");
+    //        reStartGame();
+    //    }
+    //}
 
     private void OnTriggerEnter2D(Collider2D other)
     {

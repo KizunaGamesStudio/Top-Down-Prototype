@@ -14,6 +14,7 @@ public class FollowPlayer : MonoBehaviour
     private float behaviorTimer = 0.0f;
     private Vector2 randomDirection; // Store the current random direction
     public Character4D Character;
+    Rigidbody2D rb;
  
   
 
@@ -31,6 +32,7 @@ public class FollowPlayer : MonoBehaviour
          Character.SetDirection(Vector2.down);
        
         player = GameObject.FindWithTag("Player").transform;
+         rb = GetComponent<Rigidbody2D>();
 
 
 
@@ -83,6 +85,13 @@ public class FollowPlayer : MonoBehaviour
         // Pass the direction to the character script
         //Character.SetDirection(direction);
 
+
+
+       if  (Vector3.Distance(player.position, Character.transform.position) <= 3.0f)
+        {
+            Character.AnimationManager.Attack();    
+        }
+            
 
         // Check movement direction
         bool isMovingRight = direction.x > 0f;
