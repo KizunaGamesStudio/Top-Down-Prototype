@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private float bulletSpeed = 15f;
     public GameObject bulletPrefab;
 
+
     // Update is called once per frame
     void Update()
     {
@@ -42,5 +43,5 @@ public class PlayerController : MonoBehaviour
 		bullet.GetComponent<Rigidbody2D> ().velocity = direction * bulletSpeed;
     }
 
-    
+  
 }

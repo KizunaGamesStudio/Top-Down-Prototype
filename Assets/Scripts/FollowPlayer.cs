@@ -67,7 +67,7 @@ public class FollowPlayer : MonoBehaviour
         }
     }
 
-    void FollowPlayerMovement()
+   public void FollowPlayerMovement()
     {
     
         Vector3 direction = player.position - transform.position;
@@ -123,7 +123,7 @@ public class FollowPlayer : MonoBehaviour
 
 
  
-    void MoveRandomly()
+   public void MoveRandomly()
     {
         // Move in the current random direction
         transform.position += (Vector3)randomDirection * movementSpeed * Time.deltaTime;

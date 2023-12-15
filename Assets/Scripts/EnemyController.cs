@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour
     public Character4D Character;
 
 
-    [SerializeField] private float health, maxHealth = 3.0f;
+    [SerializeField] private float health, maxHealth;
     Rigidbody2D rb;
     [SerializeField] FloatingHealthBar HealthBarScript;
 

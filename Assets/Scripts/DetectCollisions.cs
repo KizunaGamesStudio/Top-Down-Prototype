@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class DetectCollisions : MonoBehaviour
 {
+
+    [SerializeField] public bool isFollowing = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,5 +44,13 @@ public class DetectCollisions : MonoBehaviour
             reStartGame();
         }
     }
-  
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("FinalLevel"))
+        {
+            isFollowing = true; // Start following the player upon collision with the empty object
+        }
+    }
+
 }
