@@ -7,9 +7,20 @@ public class DetectCollisions : MonoBehaviour
 {
 
     [SerializeField] public bool isFollowing = false;
+    private Camera mainCamera;
+
+
+    [SerializeField] FloatingHealthBar healthBar;
+    [SerializeField] float health, maxHealth;
+
+
     // Start is called before the first frame update
     void Start()
     {
+
+        health = maxHealth;
+        healthBar = mainCamera.GetComponentInChildren<FloatingHealthBar>();
+        healthBar.UpdateHealthBar(health, maxHealth);
 
     }
 
@@ -18,6 +29,19 @@ public class DetectCollisions : MonoBehaviour
     {
 
     }
+
+    public void TakeDamage(float damageAmount)
+    {
+        health -= damageAmount;
+        healthBar.UpdateHealthBar(health, maxHealth);
+  
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 
 
     void reStartGame()
@@ -36,14 +60,20 @@ public class DetectCollisions : MonoBehaviour
     }
 
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Enemy"))
-    //    {
-    //        Debug.Log("chocaste un enemigo!");
-    //        reStartGame();
-    //    }
-    //}
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            TakeDamage(1);
+
+
+            Debug.Log("chocaste un enemigo!");
+            //reStartGame();
+        }
+    }
+
+
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
