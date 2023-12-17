@@ -29,13 +29,12 @@ public class FollowPlayer : MonoBehaviour
         Character.AnimationManager.SetState(CharacterState.Run);
 
       
-         Character.SetDirection(Vector2.down);
+        Character.SetDirection(Vector2.down);
        
         player = GameObject.FindWithTag("Player").transform;
-         rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
 
-
-
+        InvokeRepeating("AttackPlayer", 1, 1);
 
         if (player == null)
         {
@@ -87,10 +86,7 @@ public class FollowPlayer : MonoBehaviour
 
 
 
-       if  (Vector3.Distance(player.position, Character.transform.position) <= 3.0f)
-        {
-            Character.AnimationManager.Attack();    
-        }
+        
             
 
         // Check movement direction
@@ -130,7 +126,13 @@ public class FollowPlayer : MonoBehaviour
     }
 
 
-
+    private void AttackPlayer()
+    {
+        if  (Vector3.Distance(player.position, Character.transform.position) <= 3.0f)
+        {
+            Character.AnimationManager.Attack();    
+        }
+    }
  
    public void MoveRandomly()
     {

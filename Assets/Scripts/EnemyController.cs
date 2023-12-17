@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour
        
 
         health = maxHealth;
-       HealthBarScript.UpdateHealthBar(health, maxHealth);
+        HealthBarScript.UpdateHealthBar(health, maxHealth);
 
 
 
