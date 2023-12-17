@@ -19,12 +19,8 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
 
-       
-
         health = maxHealth;
         HealthBarScript.UpdateHealthBar(health, maxHealth);
-
-
 
     }
 

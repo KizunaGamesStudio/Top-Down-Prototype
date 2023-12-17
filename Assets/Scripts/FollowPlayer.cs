@@ -45,14 +45,11 @@ public class FollowPlayer : MonoBehaviour
     void Update()
     {
 
-
         if (!isCollided && player != null )
         {
             FollowPlayerMovement();
          
-        }
-        else
-        {
+        } else{
             // If collided, change behavior for a certain cooldown period
             behaviorTimer += Time.deltaTime;
 
@@ -68,67 +65,57 @@ public class FollowPlayer : MonoBehaviour
         }
     }
 
-   public void FollowPlayerMovement()
-    {
-    
-        Vector3 direction = player.position - transform.position;
-        direction.Normalize();
-
-        //transform.position += direction * movementSpeed * Time.deltaTime;
-       // Character.SetDirection(ConvertTo2D(direction)); // Pass the direction to the character script
-
-
-        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        //transform.rotation = Quaternion.Euler(0f, 0f, angle);
-        Character.transform.position += (Vector3)direction.normalized * movementSpeed * Time.deltaTime;
-        // Pass the direction to the character script
-        //Character.SetDirection(direction);
-
-
-
+    public void FollowPlayerMovement(){
         
-            
-
-        // Check movement direction
-        bool isMovingRight = direction.x > 0f;
-        bool isMovingLeft = direction.x < 0f;
-        bool isMovingUp = direction.y > 0f;
-        bool isMovingDown = direction.y < 0f;
-
-        if (isMovingRight)
+        if (player != null)
         {
-            // Perform actions when the character is moving right
-            Character.SetDirection(Vector2.right);
-            // Add your logic here
-        }
-        else if (isMovingLeft)
-        {
-            // Perform actions when the character is moving left
-          Character.SetDirection(Vector2.left);
+            Vector3 direction = player.position - transform.position;
+            direction.Normalize();
+            Character.transform.position += (Vector3)direction.normalized * movementSpeed * Time.deltaTime;
 
-            // Add your logic here
-        }
 
-        if (isMovingUp)
-        {
-            // Perform actions when the character is moving up
-            Character.SetDirection(Vector2.up);
+            Vector3 playerPosition = player.position;
+            Vector3 enemyPosition = transform.position;
 
-            // Add your logic here
-        }
-        else if (isMovingDown)
-        {
-            // Perform actions when the character is moving down
-            Character.SetDirection(Vector2.down);
+            Vector3 directionToPlayer = player.position - transform.position;
 
-            // Add your logic here
+            // Check the relative position
+            float dotProduct = Vector3.Dot(directionToPlayer.normalized, transform.up);
+
+            if (Mathf.Abs(directionToPlayer.x) > Mathf.Abs(directionToPlayer.y))
+            {
+                // Player is more to the left or right
+                if (directionToPlayer.x > 0)
+                {
+                    // Perform actions for the player being on the right
+                    Character.SetDirection(Vector2.right);
+                }
+                else
+                {
+                    // Perform actions for the player being on the left
+                    Character.SetDirection(Vector2.left);
+                }
+            }
+            else
+            {
+                // Player is more above or below
+                if (dotProduct > 0)
+                {
+                    // Perform actions for the player being above
+                    Character.SetDirection(Vector2.up);
+                }
+                else
+                {
+                    // Perform actions for the player being below
+                    Character.SetDirection(Vector2.down);
+                }
+            }
         }
     }
 
-
     private void AttackPlayer()
     {
-        if  (Vector3.Distance(player.position, Character.transform.position) <= 3.0f)
+        if  (Vector3.Distance(player.position, Character.transform.position) <= 2.0f)
         {
             Character.AnimationManager.Attack();    
         }
