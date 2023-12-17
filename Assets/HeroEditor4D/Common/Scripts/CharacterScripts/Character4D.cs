@@ -136,7 +136,7 @@ namespace Assets.HeroEditor4D.Common.Scripts.CharacterScripts
 
         public void SetDirection(Vector2 direction)
 		{
-            Debug.Log("direction");
+            //Debug.Log("direction");
             if (Direction == direction) return;
 
 			Direction = direction;
@@ -161,22 +161,22 @@ namespace Assets.HeroEditor4D.Common.Scripts.CharacterScripts
 
 			if (direction == Vector2.left)
 			{
-                Debug.Log("Vector2.left");
+                //Debug.Log("Vector2.left");
 				index = 2;
 			}
 			else if (direction == Vector2.right)
 			{
-                Debug.Log("Vector2.right");
+                //Debug.Log("Vector2.right");
 				index = 3;
 			}
 			else if (direction == Vector2.up)
 			{
-                Debug.Log("Vector2.up");
+                //Debug.Log("Vector2.up");
 				index = 1;
 			}
 			else if (direction == Vector2.down)
 			{
-                Debug.Log("Vector2.down");
+                //Debug.Log("Vector2.down");
 				index = 0;
 			}
             else

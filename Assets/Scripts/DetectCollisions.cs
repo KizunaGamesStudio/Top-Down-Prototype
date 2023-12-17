@@ -44,20 +44,7 @@ public class DetectCollisions : MonoBehaviour
 
 
 
-    void reStartGame()
-    {
-
-        Debug.Log("Game over");
-
-        // Get the current scene's name
-        string currentSceneName = SceneManager.GetActiveScene().name;
-
-        // Reload the current scene
-        SceneManager.LoadScene("MainScene");
-
-
-
-    }
+    
 
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -65,10 +52,8 @@ public class DetectCollisions : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             TakeDamage(1);
-
-
             Debug.Log("chocaste un enemigo!");
-            //reStartGame();
+            //RestarGame();
         }
     }
 

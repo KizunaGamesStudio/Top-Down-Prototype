@@ -19,17 +19,15 @@ public class SpawnEnemies : MonoBehaviour
     public bool isSpawning = false;
     public int amountOfRoundOfEnemies = 0;
     public int numberEnemiesToSpawn = 2;
+
     // Start is called before the first frame update
     void Start()
     {
         GameObject levelDesingObject = GameObject.Find("GameManager");
         LevelDesignScript = levelDesingObject.GetComponent<LevelDesign>();
 
-
         isSpawning = true;
         InvokeRepeating("SpawnEnemiesCount", 0.2f, 05.0f);
-
-
 
     }
 

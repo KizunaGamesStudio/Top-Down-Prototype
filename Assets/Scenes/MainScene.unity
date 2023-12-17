@@ -1177,11 +1177,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5036060761252308102, guid: 2c2e4c19a057cea44b4e05fd0a8eafba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.2
+      value: -7.14
       objectReference: {fileID: 0}
     - target: {fileID: 5036060761252308102, guid: 2c2e4c19a057cea44b4e05fd0a8eafba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.35
       objectReference: {fileID: 0}
     - target: {fileID: 5036060761252308102, guid: 2c2e4c19a057cea44b4e05fd0a8eafba, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1853,7 +1853,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &748234079
 Transform:
   m_ObjectHideFlags: 0
@@ -1883,7 +1883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjects:
   - {fileID: 1538055950292139837, guid: 2c2e4c19a057cea44b4e05fd0a8eafba, type: 3}
-  - {fileID: 1825246207460696979, guid: b588478a9613f394087d2d2cc01d342f, type: 3}
+  - {fileID: 7877422442643296561, guid: e9b790c5114c9434d8822df90fea882d, type: 3}
   spawnObjectsSecond:
   - {fileID: 7877422442643296561, guid: e9b790c5114c9434d8822df90fea882d, type: 3}
   - {fileID: 6338403955637369352, guid: d1cf2192b4c1dd9459f86c73932f859c, type: 3}
@@ -14377,7 +14377,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.3999996, y: 4.48}
+  m_AnchoredPosition: {x: 0.2, y: 4.48}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1665483128
@@ -14441,7 +14441,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!1 &1691301785
 GameObject:
