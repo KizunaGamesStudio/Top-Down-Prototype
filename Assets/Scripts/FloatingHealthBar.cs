@@ -13,11 +13,15 @@ public class FloatingHealthBar : MonoBehaviour
     private void Start()
     {
         MainCamera = Camera.main;
-        
+      
+
+
     }
     public void UpdateHealthBar(float currentValue, float maxValue)
     {
+     
         slider.value = currentValue / maxValue;
+
     }
 
     // Update is called once per frame

@@ -1641,7 +1641,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.12, y: 2.64}
+  m_AnchoredPosition: {x: -0.01, y: 2.32}
   m_SizeDelta: {x: 91.875, y: 29.468}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3179211616368467524
@@ -3302,7 +3302,7 @@ MonoBehaviour:
   Character: {fileID: 4182214663001081018}
   health: 0
   maxHealth: 2
-  HealthBarScript: {fileID: 0}
+  HealthBarScript: {fileID: 159210557493559764}
 --- !u!114 &3385269644087686004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10945,7 +10945,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 8367006718736087359}
   m_HandleRect: {fileID: 0}
