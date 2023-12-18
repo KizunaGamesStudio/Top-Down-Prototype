@@ -15,8 +15,11 @@ public class FollowPlayer : MonoBehaviour
     private Vector2 randomDirection; // Store the current random direction
     public Character4D Character;
     Rigidbody2D rb;
- 
-  
+    public float pushForce = 5f;
+
+
+
+
 
     // setState activa la animacion
     // setDirection activa hacia donde ve el personaje
@@ -40,10 +43,20 @@ public class FollowPlayer : MonoBehaviour
         {
             Debug.LogError("Player not found. Make sure the player has the 'Player' tag.");
         }
+
+
     }
 
     void Update()
     {
+
+        if (player != null)
+        {
+            Vector3 direction = player.position - transform.position;
+            direction.Normalize();
+            transform.Translate(direction * movementSpeed * Time.deltaTime);
+        }
+    
 
         if (!isCollided && player != null )
         {
@@ -117,11 +130,28 @@ public class FollowPlayer : MonoBehaviour
     {
         if  (Vector3.Distance(player.position, Character.transform.position) <= 2.0f)
         {
-            Character.AnimationManager.Attack();    
+            Character.AnimationManager.Attack();
+            PushPlayer();
+        
+
         }
     }
- 
-   public void MoveRandomly()
+
+
+    private void PushPlayer()
+    {
+        Rigidbody2D playerRigidbody = player.GetComponent<Rigidbody2D>();
+
+        if (playerRigidbody != null)
+        {
+            // Obtener la dirección desde el enemigo hacia el jugador
+            Vector2 pushDirection = (player.position - Character.transform.position).normalized;
+
+            // Aplicar fuerza al jugador en la dirección del empuje
+            playerRigidbody.AddForce(pushDirection * pushForce, ForceMode2D.Impulse);
+        }
+    }
+    public void MoveRandomly()
     {
         // Move in the current random direction
         transform.position += (Vector3)randomDirection * movementSpeed * Time.deltaTime;

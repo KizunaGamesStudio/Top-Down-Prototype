@@ -4059,6 +4059,7 @@ MonoBehaviour:
   movementSpeed: 0.5
   changeBehaviorCooldown: 2
   Character: {fileID: 5915728971108161025}
+  pushForce: 10
 --- !u!1 &1545184674091939453
 GameObject:
   m_ObjectHideFlags: 0
@@ -17086,7 +17087,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.03, y: 2.6}
+  m_AnchoredPosition: {x: -0.04, y: 2.61}
   m_SizeDelta: {x: 91.875, y: 29.468}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3465669116799478370

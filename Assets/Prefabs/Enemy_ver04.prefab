@@ -12499,6 +12499,7 @@ MonoBehaviour:
   movementSpeed: 2
   changeBehaviorCooldown: 2
   Character: {fileID: 6895128228239341843}
+  pushForce: 10
 --- !u!1 &6425448957962875791
 GameObject:
   m_ObjectHideFlags: 0

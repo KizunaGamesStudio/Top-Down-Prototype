@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Assets.HeroEditor4D.Common.Scripts.CharacterScripts;
+using Assets.HeroEditor4D.Common.Scripts.Enums;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +10,8 @@ public class DetectCollisions : MonoBehaviour
 
     [SerializeField] public bool isFollowing = false;
     private Camera mainCamera;
+    public Character4D Character;
+
 
 
     [SerializeField] FloatingHealthBar healthBar;
@@ -52,6 +56,7 @@ public class DetectCollisions : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             TakeDamage(1);
+            //Character.AnimationManager.SetState(CharacterState.Jump);
             Debug.Log("chocaste un enemigo!");
             //RestarGame();
         }

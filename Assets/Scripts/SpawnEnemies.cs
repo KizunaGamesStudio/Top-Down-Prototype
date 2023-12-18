@@ -17,7 +17,7 @@ public class SpawnEnemies : MonoBehaviour
     public float spawnIntervalMax = 8.0f; // Maximum time between spawns
 
     public bool isSpawning = false;
-    public int amountOfRoundOfEnemies = 0;
+    public int amountOfRoundOfEnemies = 1;
     public int numberEnemiesToSpawn = 2;
 
     // Start is called before the first frame update
