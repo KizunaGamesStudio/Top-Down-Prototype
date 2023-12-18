@@ -15,7 +15,7 @@ public class FollowPlayer : MonoBehaviour
     private Vector2 randomDirection; // Store the current random direction
     public Character4D Character;
     Rigidbody2D rb;
-    public float pushForce = 5f;
+    //public float pushForce = 5f;
 
 
 
@@ -131,26 +131,26 @@ public class FollowPlayer : MonoBehaviour
         if  (Vector3.Distance(player.position, Character.transform.position) <= 2.0f)
         {
             Character.AnimationManager.Attack();
-            PushPlayer();
+            //PushPlayer();
         
 
         }
     }
 
 
-    private void PushPlayer()
-    {
-        Rigidbody2D playerRigidbody = player.GetComponent<Rigidbody2D>();
+    //private void PushPlayer()
+    //{
+    //    Rigidbody2D playerRigidbody = player.GetComponent<Rigidbody2D>();
 
-        if (playerRigidbody != null)
-        {
-            // Obtener la dirección desde el enemigo hacia el jugador
-            Vector2 pushDirection = (player.position - Character.transform.position).normalized;
+    //    if (playerRigidbody != null)
+    //    {
+    //        // Obtener la dirección desde el enemigo hacia el jugador
+    //        Vector2 pushDirection = (player.position - Character.transform.position).normalized;
 
-            // Aplicar fuerza al jugador en la dirección del empuje
-            playerRigidbody.AddForce(pushDirection * pushForce, ForceMode2D.Impulse);
-        }
-    }
+    //        // Aplicar fuerza al jugador en la dirección del empuje
+    //        playerRigidbody.AddForce(pushDirection * pushForce, ForceMode2D.Impulse);
+    //    }
+    //}
     public void MoveRandomly()
     {
         // Move in the current random direction
@@ -166,9 +166,7 @@ public class FollowPlayer : MonoBehaviour
         if (collision.gameObject.CompareTag("ObjectsColliders"))
         {
             isCollided = true;
-            // Set a new random direction upon collision
-            randomDirection = Random.insideUnitCircle.normalized;
-
+            MoveRandomly();
 
         }
     }
