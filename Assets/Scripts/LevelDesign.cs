@@ -59,7 +59,7 @@ public class LevelDesign : MonoBehaviour
             if (SpawnEnemiesScript != null)
             {
                 // Start spawning enemies when nextLevel is true
-                // StartCoroutine(SpawnEnemiesScript.SpawnEnemiesCount(amountOfEnemies));
+                 //StartCoroutine(SpawnEnemiesScript.SpawnEnemiesCount(amountOfEnemies));
                 cameraBoundsScript.nextLevel();
                 numberOfLevels++;
                 amountOfEnemies = amountOfEnemies + 5;
