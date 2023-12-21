@@ -39,10 +39,10 @@ public class SpawnEnemies : MonoBehaviour
         {
             for (int i = 0; i < numberEnemiesToSpawn; i++) 
             {
-                if (LevelDesignScript.numberOfLevels <= 2) {
+                if (LevelDesignScript.numberOfLevels <= 4) {
                     SpawnRandomObjectfirstLevel();
                     float spawnInterval = Random.Range(spawnIntervalMin, spawnIntervalMax);
-                } else if (LevelDesignScript.numberOfLevels >= 2 )
+                } else if (LevelDesignScript.numberOfLevels >= 4 )
                 {
                     SpawnRandomObjectSecondLevel();
                     float spawnInterval = Random.Range(spawnIntervalMin, spawnIntervalMax);
