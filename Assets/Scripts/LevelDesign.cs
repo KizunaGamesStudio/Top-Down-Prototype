@@ -2,9 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelDesign : MonoBehaviour
 {
+
+
+
+
     SpawnEnemies SpawnEnemiesScript;
     private float delayTimer = 1f; // 5-second delay
     private float elapsedTime = 0f;
@@ -14,7 +19,7 @@ public class LevelDesign : MonoBehaviour
     public float checkInterval = 01f; // Check interval in seconds
     public bool nextLevel = false;
     public int numberOfRoundsPerLevel = 3;
-    public int numberOfLevels = 0;
+    public int numberOfLevels = 1;
 
 
 
@@ -35,9 +40,9 @@ public class LevelDesign : MonoBehaviour
 
 
         //StartCoroutine(SpawnEnemiesScript.SpawnEnemiesCount(amountOfEnemies));
-        StartCoroutine(CheckForNextLevel());
-      
 
+
+        StartCoroutine(CheckForNextLevel());
 
         //nvokeRepeating("SpawnEnemiesScript.SpawnEnemiesCount", 0.2f, 05.0f);
 
@@ -61,7 +66,7 @@ public class LevelDesign : MonoBehaviour
                 // Start spawning enemies when nextLevel is true
                  //StartCoroutine(SpawnEnemiesScript.SpawnEnemiesCount(amountOfEnemies));
                 cameraBoundsScript.nextLevel();
-                numberOfLevels++;
+                numberOfLevels = numberOfLevels+ 1;
                 amountOfEnemies = amountOfEnemies + 5;
                 //numberOfRoundsPerLevel = numberOfRoundsPerLevel + 1;
 
@@ -81,9 +86,14 @@ public class LevelDesign : MonoBehaviour
     {
 
         CheckForEnemiesRoutine();
+        //StartCoroutine(CheckForNextLevel());
         GameObject cameraBoundsObject = GameObject.FindGameObjectWithTag("MainCamera");
         cameraBoundsScript = cameraBoundsObject.GetComponent<CameraBounds>();
-        //Debug.Log(isEnemiesinTheScene);
+
+
+
+
+
     }
 
 
