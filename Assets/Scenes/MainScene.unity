@@ -456,7 +456,7 @@ RectTransform:
   m_Father: {fileID: 2008357278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -0.000045776367, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -554,6 +554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FollowPlayerScript: {fileID: 484232539}
   Character: {fileID: 484232535}
+  Boss: {fileID: 484232527}
 --- !u!114 &484232539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -892,6 +893,10 @@ PrefabInstance:
     - target: {fileID: 1568126199611872594, guid: 9139ca4b86fff2049936acb7628708f2, type: 3}
       propertyPath: m_Name
       value: BigBoss
+      objectReference: {fileID: 0}
+    - target: {fileID: 1568126199611872594, guid: 9139ca4b86fff2049936acb7628708f2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1568126199611872594, guid: 9139ca4b86fff2049936acb7628708f2, type: 3}
       propertyPath: m_TagString
@@ -1922,11 +1927,11 @@ MonoBehaviour:
   spawnObjectsSecond:
   - {fileID: 7877422442643296561, guid: e9b790c5114c9434d8822df90fea882d, type: 3}
   - {fileID: 6338403955637369352, guid: d1cf2192b4c1dd9459f86c73932f859c, type: 3}
-  spawnIntervalMin: 1
-  spawnIntervalMax: 2
+  spawnIntervalMin: 5
+  spawnIntervalMax: 8
   isSpawning: 0
   amountOfRoundOfEnemies: 1
-  numberEnemiesToSpawn: 15
+  numberEnemiesToSpawn: 2
 --- !u!4 &802637185 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5502826905364730954, guid: e9b790c5114c9434d8822df90fea882d, type: 3}
@@ -3092,6 +3097,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1285463015}
   - component: {fileID: 1285463014}
+  - component: {fileID: 1285463016}
   m_Layer: 0
   m_Name: Finalevel
   m_TagString: FinalLevel
@@ -3153,12 +3159,26 @@ Transform:
   m_GameObject: {fileID: 1285463013}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.681415, y: 32.21468, z: -0.015922327}
+  m_LocalPosition: {x: -5.69, y: 31.83, z: -0.015922327}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1285463016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285463013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f15cc2f5175bab44a9073d52ecb18140, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Boss: {fileID: 484232527}
+  FollowPlayerScript: {fileID: 0}
 --- !u!1 &1326281542
 GameObject:
   m_ObjectHideFlags: 0
@@ -14871,8 +14891,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1691301787}
-  - component: {fileID: 1691301786}
   - component: {fileID: 1691301788}
+  - component: {fileID: 1691301789}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -14880,23 +14900,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1691301786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1691301785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3089e0b813f699d4dbc64317628f317d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isEnemiesinTheScene: 0
-  checkInterval: 5
-  nextLevel: 0
-  numberOfRoundsPerLevel: 1
-  numberOfLevels: 0
 --- !u!4 &1691301787
 Transform:
   m_ObjectHideFlags: 0
@@ -14924,6 +14927,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772397522c406434589ce9156af8a112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1691301789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691301785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3089e0b813f699d4dbc64317628f317d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnemiesinTheScene: 0
+  checkInterval: 1
+  nextLevel: 0
+  numberOfRoundsPerLevel: 3
+  numberOfLevels: 0
 --- !u!1001 &1734522709
 PrefabInstance:
   m_ObjectHideFlags: 0

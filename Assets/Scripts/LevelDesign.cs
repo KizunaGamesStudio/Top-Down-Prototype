@@ -83,21 +83,26 @@ public class LevelDesign : MonoBehaviour
         CheckForEnemiesRoutine();
         GameObject cameraBoundsObject = GameObject.FindGameObjectWithTag("MainCamera");
         cameraBoundsScript = cameraBoundsObject.GetComponent<CameraBounds>();
+        //Debug.Log(isEnemiesinTheScene);
     }
 
 
 
     void  CheckForEnemiesRoutine()
     {
+        Debug.Log("entra a la func");
+     
       
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            Debug.Log(enemies);
+            Debug.Log(isEnemiesinTheScene);
 
-            if (enemies.Length == 0 && isEnemiesinTheScene && SpawnEnemiesScript.amountOfRoundOfEnemies > numberOfRoundsPerLevel)
+        if (enemies.Length == 0 && isEnemiesinTheScene && SpawnEnemiesScript.amountOfRoundOfEnemies > numberOfRoundsPerLevel)
             {
                 isEnemiesinTheScene = false;
                 Debug.Log("No enemies found in the scene.");
-
-                cameraBoundsScript.nextLevel();
+            Debug.Log("entra a la func parte 2");
+            cameraBoundsScript.nextLevel();
                 nextLevel = true;
                SpawnEnemiesScript.amountOfRoundOfEnemies = 0;
             SpawnEnemiesScript.isSpawning = true;
