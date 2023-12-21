@@ -795,6 +795,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65fd00190dd47e249baef8c2a8bab2ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &522407988 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5400293497091560735, guid: bfcceb29fbe55ef4793e1839b5bd48b8, type: 3}
+  m_PrefabInstance: {fileID: 634483350}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &543977015 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2760696073345633813, guid: a50dedb21a11ed049a0c204f46b5ac58, type: 3}
@@ -1013,12 +1018,24 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1153918761}
     m_Modifications:
     - target: {fileID: 1798329461064434980, guid: bfcceb29fbe55ef4793e1839b5bd48b8, type: 3}
       propertyPath: Character
       value: 
       objectReference: {fileID: 1153918748}
+    - target: {fileID: 5400293497091560735, guid: bfcceb29fbe55ef4793e1839b5bd48b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400293497091560735, guid: bfcceb29fbe55ef4793e1839b5bd48b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400293497091560735, guid: bfcceb29fbe55ef4793e1839b5bd48b8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5400293497091560735, guid: bfcceb29fbe55ef4793e1839b5bd48b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1029,7 +1046,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5400293497091560735, guid: bfcceb29fbe55ef4793e1839b5bd48b8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 90
+      value: 225
       objectReference: {fileID: 0}
     - target: {fileID: 5400293497091560735, guid: bfcceb29fbe55ef4793e1839b5bd48b8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1037,15 +1054,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5400293497091560735, guid: bfcceb29fbe55ef4793e1839b5bd48b8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5400293497091560735, guid: bfcceb29fbe55ef4793e1839b5bd48b8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5400293497091560735, guid: bfcceb29fbe55ef4793e1839b5bd48b8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5400293497091560735, guid: bfcceb29fbe55ef4793e1839b5bd48b8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1061,7 +1078,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6589724111547858712, guid: bfcceb29fbe55ef4793e1839b5bd48b8, type: 3}
       propertyPath: m_Name
-      value: MouseInteractionExample
+      value: MouseInteraction
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1909,7 +1926,7 @@ MonoBehaviour:
   spawnIntervalMax: 2
   isSpawning: 0
   amountOfRoundOfEnemies: 1
-  numberEnemiesToSpawn: 8
+  numberEnemiesToSpawn: 15
 --- !u!4 &802637185 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5502826905364730954, guid: e9b790c5114c9434d8822df90fea882d, type: 3}
@@ -2323,7 +2340,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8805228661503993981, guid: 6ae983a2448c09f41b022032e55a9e92, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 522407988}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5092732405392395118, guid: 6ae983a2448c09f41b022032e55a9e92, type: 3}
       insertIndex: -1
@@ -2517,7 +2537,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2703,6 +2723,11 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!4 &1153918761 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8805228661503993981, guid: 6ae983a2448c09f41b022032e55a9e92, type: 3}
+  m_PrefabInstance: {fileID: 916185474}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1153918767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16244,7 +16269,6 @@ SceneRoots:
   - {fileID: 876277303}
   - {fileID: 2091975239}
   - {fileID: 916185474}
-  - {fileID: 634483350}
   - {fileID: 553040429}
   - {fileID: 1285463015}
   - {fileID: 1798519477}
