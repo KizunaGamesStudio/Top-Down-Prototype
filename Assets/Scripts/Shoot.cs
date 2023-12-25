@@ -12,8 +12,7 @@ namespace Assets.HeroEditor4D.Common.Scripts.ExampleScripts
 	{
         public Character4D Character;
         public FirearmFxExample FirearmFx;
-
-         private float bulletSpeed = 15f;
+        private float bulletSpeed = 15f;
         public GameObject bulletPrefab;
 
         public void Start()
@@ -40,7 +39,7 @@ namespace Assets.HeroEditor4D.Common.Scripts.ExampleScripts
             // Creates the bullet locally
             GameObject bullet = (GameObject)Instantiate (
                                     bulletPrefab,
-                                    transform.position + (Vector3)( direction * 0.5f),
+                                    GameObject.Find("WeaponFire").transform.position + (Vector3)( direction * 0.5f),
                                     Quaternion.identity);
 
             // Adds velocity to the bullet
@@ -55,7 +54,6 @@ namespace Assets.HeroEditor4D.Common.Scripts.ExampleScripts
 
             if (firearm != null)
             {
-                Debug.Log("not null");
                 FirearmFx.CreateFireMuzzle(firearm.Name, firearm.Collection);
             }
         }
