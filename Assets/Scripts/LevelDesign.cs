@@ -100,12 +100,10 @@ public class LevelDesign : MonoBehaviour
 
     void  CheckForEnemiesRoutine()
     {
-        Debug.Log("entra a la func");
      
       
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            Debug.Log(enemies);
-            Debug.Log(isEnemiesinTheScene);
+       
 
         if (enemies.Length == 0 && isEnemiesinTheScene && SpawnEnemiesScript.amountOfRoundOfEnemies > numberOfRoundsPerLevel)
             {

@@ -12,6 +12,7 @@ TagManager:
   - GameManager
   - HealthBar
   - FinalLevel
+  - Shield
   layers:
   - Default
   - TransparentFX
