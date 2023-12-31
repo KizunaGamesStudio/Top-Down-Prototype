@@ -41,7 +41,7 @@ namespace Assets.HeroEditor4D.Common.Scripts.ExampleScripts
                                     bulletPrefab,
                                     GameObject.Find("WeaponFire").transform.position + (Vector3)( direction * 0.5f),
                                     Quaternion.identity);
-
+          
             // Adds velocity to the bullet
             bullet.GetComponent<Rigidbody2D> ().velocity = direction * bulletSpeed;
         }
