@@ -14,6 +14,6 @@ jobs:
 
     - name: Sync with Azure DevOps
       run: |
-        git remote add azure https://<URL_DEL_REPOSITORIO_AZURE_DEVOPS>
+        git remote add azure https://dev.azure.com/micolpa08/Kizuna%20Game%20Studio/_git/TopDownPrototype
         git fetch azure
         git push origin HEAD:main
