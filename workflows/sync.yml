@@ -1,0 +1,19 @@
+name: Sync with Azure DevOps
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Ejecutar cada hora, puedes ajustar según sea necesario
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Sync with Azure DevOps
+      run: |
+        git remote add azure https://<URL_DEL_REPOSITORIO_AZURE_DEVOPS>
+        git fetch azure
+        git push origin HEAD:main
